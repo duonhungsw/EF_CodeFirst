@@ -1,0 +1,30 @@
+﻿@using BusinessLayer.Models;
+@model List<Product>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<form asp-action="Create" asp-controller="Home" method="post">
+    <input type="text" name="name" /> Name
+    <input type="text" name="description" /> Description
+    <input type="number" name="price" /> Price
+    <input type="submit" value="Add" />
+
+</form>
+@if(Model != null && Model.Count > 0)
+{
+    foreach(var p in Model)
+    {
+        <h1>@p.Id + @p.Name + @p.Description + @p.Price</h1>
+    }
+}
+
+<h1>
+    
+</h1>
